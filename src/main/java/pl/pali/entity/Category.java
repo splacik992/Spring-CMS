@@ -2,6 +2,7 @@ package pl.pali.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "category")
@@ -17,7 +18,24 @@ public class Category {
     @Column(nullable = false)
     private String description;
 
+
+    @OneToMany
+    private List<Article> article;
     public Category() {
+    }
+
+    public Category(int id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    public List<Article> getArticle() {
+        return article;
+    }
+
+    public void setArticle(List<Article> article) {
+        this.article = article;
     }
 
     public int getId() {
@@ -41,12 +59,6 @@ public class Category {
     }
 
     public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Category(int id, String name, String description) {
-        this.id = id;
-        this.name = name;
         this.description = description;
     }
 }

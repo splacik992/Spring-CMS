@@ -30,4 +30,7 @@ public class ArticleDao {
     public void delete(Integer id) {
         entityManager.remove(read(id));
     }
+
+
+
 }
