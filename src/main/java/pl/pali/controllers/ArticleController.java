@@ -40,12 +40,12 @@ public class ArticleController {
     @PrePersist
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addArticle(Model model, @RequestParam String title,
-                             @RequestParam String content, @RequestParam Category category,
+                             @RequestParam String content, @RequestParam List<Category> category,
                              @RequestParam Author author) {
         Article article = new Article();
         article.setTitle(title);
         article.setContent(content);
-        article.setCategory(category);
+        article.setCategory((List<Category>) category);
         article.setAuthor(author);
         articleDao.add(article);
 
@@ -63,11 +63,11 @@ public class ArticleController {
     @PreUpdate
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     public String updateArticle(@PathVariable Integer id, Model model,
-                                @RequestParam Author author, @RequestParam Category category,
+                                @RequestParam Author author, @RequestParam List<Category> category,
                                 @RequestParam String content, @RequestParam String title) {
         Article article = articleDao.read(id);
         article.setAuthor(author);
-        article.setCategory(category);
+        article.setCategory((List<Category>) category);
         article.setContent(content);
         article.setTitle(title);
         articleDao.update(article);

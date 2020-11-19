@@ -1,14 +1,8 @@
 package pl.pali.entity;
 
 
-import org.w3c.dom.stylesheets.LinkStyle;
-
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,8 +20,8 @@ public class Article {
     @ManyToOne
     private Author author;
 
-    @ManyToOne
-    private Category category;
+    @ManyToMany(mappedBy = "articles",fetch = FetchType.EAGER)
+    private List<Category> category;
 
     private String content;
 
@@ -37,6 +31,9 @@ public class Article {
     @Column(name = "updated_on")
     private LocalDateTime updatedOn;
 
+    public Author getAuthor() {
+        return author;
+    }
 
     @PrePersist
     public void prePersist() {
@@ -48,6 +45,18 @@ public class Article {
         updatedOn = LocalDateTime.now();
     }
 
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+
+    public List<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<Category> category) {
+        this.category = category;
+    }
 
     public int getId() {
         return id;
@@ -65,21 +74,6 @@ public class Article {
         this.title = title;
     }
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
     public String getContent() {
         return content;

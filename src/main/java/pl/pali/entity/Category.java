@@ -18,6 +18,8 @@ public class Category {
     @Column(nullable = false)
     private String description;
 
+    @ManyToMany()
+    private List<Article> articles;
 
     public Category(int id, String name, String description) {
         this.id = id;

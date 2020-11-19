@@ -2,6 +2,7 @@ package pl.pali.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "authors")
@@ -14,7 +15,8 @@ public class Author {
     private String firstName;
     private String lastName;
 
-
+    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
+    private List<Article> articles;
 
     public int getId() {
         return id;
