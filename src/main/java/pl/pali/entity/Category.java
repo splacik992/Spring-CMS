@@ -19,23 +19,13 @@ public class Category {
     private String description;
 
 
-    @OneToMany
-    private List<Article> article;
-    public Category() {
-    }
-
     public Category(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public List<Article> getArticle() {
-        return article;
-    }
-
-    public void setArticle(List<Article> article) {
-        this.article = article;
+    public Category() {
     }
 
     public int getId() {
