@@ -15,6 +15,7 @@ public class Author {
     private String lastName;
 
 
+
     public int getId() {
         return id;
     }
@@ -37,5 +38,14 @@ public class Author {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

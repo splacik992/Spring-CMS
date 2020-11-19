@@ -13,12 +13,20 @@
 </head>
 <body>
 <h1>New Article</h1>
-<form:form method="post" modelAttribute="newCategory">
+<form:form method="post" modelAttribute="newArticle">
     Name:
-    <form:input path="name"/><br/>
+    <form:input path="title"/><br/>
     Description:
-    <form:input path="description"/><br/>
-    <input type="submit" value="Zapisz">
+    <form:input path="content"/><br/>
+    Author:
+    <form:select path="author" items="${authors}"
+                 itemLabel="firstName" itemValue="id"/><br/>
+    Category:<br/>
+    <form:select path="category" items="${categories}"
+                 multiple="true" itemLabel="name" itemValue="id"/>
+
+    <br/>
+    <input type="submit" value="ZAPISZ!"/>
 </form:form>
 
 </body>

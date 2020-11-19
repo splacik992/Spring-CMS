@@ -23,7 +23,7 @@ public class Article {
     @Column(length = 200)
     private String title;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Author author;
 
     @ManyToOne
