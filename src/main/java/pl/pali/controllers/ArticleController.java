@@ -26,24 +26,24 @@ public class ArticleController {
     public ArticleController(ArticleDao articleDao, AuthorDao authorDao, CategoryDao categoryDao) {
         this.articleDao = articleDao;
         this.authorDao = authorDao;
-
         this.categoryDao = categoryDao;
     }
 
-    @PrePersist
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addArticle(Model model){
-        Article article = new Article();
-        Author author = authorDao.read(1);
-        article.setAuthor(author);
-        article.setTitle("O Warszawo");
-        article.setContent("Historia Warszawyłł");
-        Category category = categoryDao.read(3);
-        article.setCategory(category);
 
-        articleDao.add(article);
-        model.addAttribute("newArticle",article);
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addArticleForm(Model model) {
+        model.addAttribute("newArticle", new Article());
         return "newArticle";
     }
+
+    @PrePersist
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addArticle(Model model) {
+        model.addAttribute("newArticle", new Article());
+
+        return "home";
+    }
+
+
 
 }

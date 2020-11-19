@@ -4,19 +4,17 @@
   Created by IntelliJ IDEA.
   User: pali
   Date: 19.11.2020
-  Time: 18:23
+  Time: 20:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
-    <h1>Categories</h1>
 </head>
 <body>
-
 <table>
-    <c:forEach items="${categoriesList}" var="categories">
+    <c:forEach items="${allAuthors}" var="aut">
         <tr>
             <th>Name</th>
             <th>Description</th>
@@ -24,15 +22,18 @@
         </tr>
 
         <tr>
-            <td>${categories.name}</td>
-            <td>${categories.description}</td>
-            <td><a href="/category/update/${categories.id}">Update</a></td>
-            <td><a href="/category/delete/${categories.id}">Delete</a></td>
+            <td>${aut.firstName}</td>
+            <td>${aut.lastName}</td>
+            <td><a href="/author/update/${aut.id}">Update</a></td>
+            <td><a href="/author/delete/${aut.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
-<form:form method="get" action="/category/add">
-    <button type="submit">New Category</button>
+<form:form method="get" action="/author/add">
+    <button type="submit">New Author</button>
+</form:form>
+<form:form method="get" action="/">
+    <button type="submit">New Author</button>
 </form:form>
 </body>
 </html>

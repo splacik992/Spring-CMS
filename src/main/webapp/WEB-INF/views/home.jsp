@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: pali
@@ -29,6 +30,12 @@
     </c:forEach>
 </table>
 
-<a href="/category/all">Categories</a>
+<form:form method="get" action="/article/add">
+    <button type="submit">New Article</button>
+</form:form>
+<br/>
+<h3><a href="/category/all">Categories</a></h3>
+<h3><a href="/author/all">Authors</a></h3>
+
 </body>
 </html>

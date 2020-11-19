@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.pali.entity.Category;
 import pl.pali.utils.CategoryDao;
 
-import javax.persistence.GenerationType;
-import java.awt.print.Book;
 import java.util.List;
 
 @Controller
