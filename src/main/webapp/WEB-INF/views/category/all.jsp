@@ -34,5 +34,8 @@
 <form:form method="get" action="/category/add">
     <button type="submit">New Category</button>
 </form:form>
+<form:form method="get" action="/">
+    <button type="submit">Main Page</button>
+</form:form>
 </body>
 </html>

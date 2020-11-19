@@ -19,8 +19,10 @@
     <form:input path="name"/><br/>
     Description:
     <form:input path="description"/><br/>
-    <input type="submit" value="Zapisz">
+    <input type="submit" value="Submit">
 </form:form>
-
+<form:form method="get" action="/category/all">
+    <button type="submit">Cancel</button>
+</form:form>
 </body>
 </html>

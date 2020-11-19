@@ -3,21 +3,20 @@
   Created by IntelliJ IDEA.
   User: pali
   Date: 19.11.2020
-  Time: 20:42
+  Time: 22:16
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Update Article</title>
 </head>
 <body>
-<h1>New Article</h1>
-<form:form method="post" modelAttribute="newArticle">
+<form:form method="post" modelAttribute="updateArticle">
     Name:
-    <form:input path="title"/><br/>
+    <form:input path="title" value="${updateArticle.title}"/><br/>
     Description:
-    <form:input path="content"/><br/>
+    <form:input path="content" value="${updateArticle.content}"/><br/>
     Author:
     <form:select path="author" items="${authors}"
                  itemLabel="firstName" itemValue="id"/><br/>

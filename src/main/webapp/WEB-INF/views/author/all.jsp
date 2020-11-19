@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Author Page</title>
 </head>
 <body>
 <table>
@@ -33,7 +33,7 @@
     <button type="submit">New Author</button>
 </form:form>
 <form:form method="get" action="/">
-    <button type="submit">New Author</button>
+    <button type="submit">Main Page</button>
 </form:form>
 </body>
 </html>

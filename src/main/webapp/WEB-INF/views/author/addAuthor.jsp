@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>New Author</title>
 </head>
 <body>
 
@@ -19,10 +19,10 @@
     <form:input path="firstName"/><br/>
     Description:
     <form:input path="lastName"/><br/>
-    <input type="submit" value="Zapisz">
+    <input type="submit" value="Submit">
 </form:form>
 <form:form method="get" action="/author/all">
-    <button type="submit" >Wróć</button>
+    <button type="submit" >Cancel</button>
 </form:form>
 
 </body>

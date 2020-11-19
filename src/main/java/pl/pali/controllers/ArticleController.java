@@ -3,10 +3,7 @@ package pl.pali.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.pali.entity.Article;
 import pl.pali.entity.Author;
 import pl.pali.entity.Category;
@@ -15,6 +12,7 @@ import pl.pali.utils.AuthorDao;
 import pl.pali.utils.CategoryDao;
 
 import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import java.util.List;
 
 @Controller
@@ -55,13 +53,40 @@ public class ArticleController {
     }
 
 
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public String showUpdateForm(@PathVariable Integer id, Model model) {
+        Article updateArticle = articleDao.read(id);
+        model.addAttribute("updateArticle", updateArticle);
+        return "/article/updateArticle";
+    }
+
+    @PreUpdate
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    public String updateArticle(@PathVariable Integer id, Model model,
+                                @RequestParam Author author, @RequestParam Category category,
+                                @RequestParam String content, @RequestParam String title) {
+        Article article = articleDao.read(id);
+        article.setAuthor(author);
+        article.setCategory(category);
+        article.setContent(content);
+        article.setTitle(title);
+        articleDao.update(article);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String removeArticle(@PathVariable Integer id) {
+        articleDao.delete(id);
+        return "redirect:/";
+    }
+
     @ModelAttribute("authors")
     public List<Author> getAllAuthor() {
         return authorDao.findAll();
     }
 
     @ModelAttribute("categories")
-    List<Category> getAllCategory(){
+    List<Category> getAllCategory() {
         return categoryDao.findAll();
     }
 

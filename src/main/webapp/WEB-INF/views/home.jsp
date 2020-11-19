@@ -20,6 +20,8 @@
             <th>Title</th>
             <th>Date</th>
             <th>Content</th>
+            <td><a href="/article/update/${articles.id}">Update</a></td>
+            <td><a href="/article/delete/${articles.id}">Delete</a></td>
         </tr>
 
         <tr>
@@ -31,11 +33,16 @@
 </table>
 
 <form:form method="get" action="/article/add">
-    <button type="submit">New Article</button>
+    <button type="submit" style="background-color: bisque">New Article</button>
 </form:form>
 <br/>
-<h3><a href="/category/all">Categories</a></h3>
-<h3><a href="/author/all">Authors</a></h3>
+<form:form method="get" action="/category/all">
+    <button type="submit" style="background-color: chocolate">Category</button>
+</form:form>
+<form:form method="get" action="/author/all">
+    <button type="submit" style="background-color: chocolate">Author</button>
+</form:form>
+
 
 </body>
 </html>
