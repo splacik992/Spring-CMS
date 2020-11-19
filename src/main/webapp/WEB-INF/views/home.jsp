@@ -12,6 +12,7 @@
     <title>Home Page</title>
 </head>
 <body>
+<h1>Articles</h1>
 <table>
     <c:forEach items="${articleList}" var="articles">
         <tr>
@@ -27,5 +28,7 @@
         </tr>
     </c:forEach>
 </table>
+
+<a href="/category/all">Categories</a>
 </body>
 </html>
