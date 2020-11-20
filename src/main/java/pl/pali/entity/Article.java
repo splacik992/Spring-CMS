@@ -2,6 +2,8 @@ package pl.pali.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,13 +17,17 @@ public class Article {
     private int id;
 
     @Column(length = 200)
+    @Size(min = 1, max = 200)
     private String title;
 
     @ManyToOne
     private Author author;
 
+
+    @Size(min = 1,message = "choose category!")
     @ManyToMany(mappedBy = "articles",fetch = FetchType.EAGER)
     private List<Category> category;
+
 
     private String content;
 

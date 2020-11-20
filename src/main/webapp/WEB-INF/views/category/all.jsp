@@ -15,14 +15,13 @@
 </head>
 <body>
 
-<table>
+<table border="3">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+
+    </tr>
     <c:forEach items="${categoriesList}" var="categories">
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-
-        </tr>
-
         <tr>
             <td>${categories.name}</td>
             <td>${categories.description}</td>

@@ -13,14 +13,14 @@
     <title>Author Page</title>
 </head>
 <body>
-<table>
-    <c:forEach items="${allAuthors}" var="aut">
+<table border="3">
+
         <tr>
             <th>Name</th>
             <th>Description</th>
 
         </tr>
-
+    <c:forEach items="${allAuthors}" var="aut">
         <tr>
             <td>${aut.firstName}</td>
             <td>${aut.lastName}</td>

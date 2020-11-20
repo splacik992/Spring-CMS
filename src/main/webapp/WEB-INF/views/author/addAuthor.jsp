@@ -16,13 +16,16 @@
 <h1>New Author</h1>
 <form:form method="post" modelAttribute="newAuthor">
     Name:
-    <form:input path="firstName"/><br/>
+    <form:input path="firstName"/>
+    <form:errors path="firstName"/><br/>
+
     Description:
     <form:input path="lastName"/><br/>
+    <form:errors path="lastName"/>
     <input type="submit" value="Submit">
 </form:form>
 <form:form method="get" action="/author/all">
-    <button type="submit" >Cancel</button>
+    <button type="submit">Cancel</button>
 </form:form>
 
 </body>

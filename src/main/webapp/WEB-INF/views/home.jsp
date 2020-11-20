@@ -14,20 +14,21 @@
 </head>
 <body>
 <h1>Articles</h1>
-<table>
-    <c:forEach items="${articleList}" var="articles">
+<table border="3">
+
         <tr>
             <th>Title</th>
             <th>Date</th>
             <th>Content</th>
-            <td><a href="/article/update/${articles.id}">Update</a></td>
-            <td><a href="/article/delete/${articles.id}">Delete</a></td>
-        </tr>
 
+        </tr>
+    <c:forEach items="${articleList}" var="articles">
         <tr>
             <td>${articles.title}</td>
             <td>${articles.createdOn.format(formaterDate)}</td>
             <td>${articles.content}</td>
+            <td><a href="/article/update/${articles.id}">Update</a></td>
+            <td><a href="/article/delete/${articles.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

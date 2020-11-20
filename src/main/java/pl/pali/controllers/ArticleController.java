@@ -3,6 +3,7 @@ package pl.pali.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.pali.entity.Article;
 import pl.pali.entity.Author;
@@ -13,6 +14,7 @@ import pl.pali.utils.CategoryDao;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -39,16 +41,12 @@ public class ArticleController {
 
     @PrePersist
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addArticle(Model model, @RequestParam String title,
-                             @RequestParam String content, @RequestParam List<Category> category,
-                             @RequestParam Author author) {
-        Article article = new Article();
-        article.setTitle(title);
-        article.setContent(content);
-        article.setCategory((List<Category>) category);
-        article.setAuthor(author);
-        articleDao.add(article);
-
+    public String addArticle(@Valid Article article, BindingResult result) {
+        if (result.hasErrors()) {
+            return "article/newArticle";
+        } else {
+            articleDao.add(article);
+        }
         return "redirect:/";
     }
 

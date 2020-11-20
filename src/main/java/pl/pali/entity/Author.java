@@ -2,6 +2,7 @@ package pl.pali.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -12,7 +13,9 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
 
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)

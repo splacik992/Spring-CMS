@@ -1,7 +1,8 @@
 package pl.pali.entity;
-
-
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -12,11 +13,14 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Size(min = 5,message = "more letters!")
+    @NotBlank
     @Column(length = 100)
     private String name;
 
     @Column(nullable = false)
     private String description;
+
 
     @ManyToMany()
     private List<Article> articles;

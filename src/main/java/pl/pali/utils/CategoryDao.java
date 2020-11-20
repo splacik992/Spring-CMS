@@ -2,8 +2,6 @@ package pl.pali.utils;
 
 
 import org.springframework.stereotype.Repository;
-import pl.pali.entity.Article;
-import pl.pali.entity.Author;
 import pl.pali.entity.Category;
 
 import javax.persistence.EntityManager;

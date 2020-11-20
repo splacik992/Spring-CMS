@@ -14,15 +14,21 @@
 
 <body>
 <h1>New Category</h1>
-<form:form method="post" modelAttribute="newCategory">
+<table border="1">
+<form:form  method="post" modelAttribute="category">
     Name:
-    <form:input path="name"/><br/>
+    <form:input path="name"/>
+    <form:errors path="name" cssClass="error"/>
+    <br/>
+
     Description:
     <form:input path="description"/><br/>
     <input type="submit" value="Submit">
+
 </form:form>
 <form:form method="get" action="/category/all">
     <button type="submit">Cancel</button>
 </form:form>
+</table>
 </body>
 </html>
